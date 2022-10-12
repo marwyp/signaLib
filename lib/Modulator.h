@@ -1,4 +1,3 @@
-
 #include <complex>
 #include <vector>
 
@@ -12,7 +11,7 @@ class Modulator{
 
     virtual std::vector<comp> modulate(std::vector<int> x) = 0;
 
-    
+    protected:
     int modulationOrder;      // modulation order
     int phaseOffset;          // phase offset in degrees
 };
