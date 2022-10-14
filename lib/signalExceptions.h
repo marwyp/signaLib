@@ -1,0 +1,1 @@
+class UnknownUnitException : public std::exception{};

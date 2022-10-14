@@ -13,8 +13,9 @@ std::vector<comp> PSKModulator::modulate(std::vector<int> x){
     std::vector<comp> result;
     double baseAngle = 360 / modulationOrder;
     baseAngle *= (M_PI / 180);
+    double phaseOffsetInRadians = getPhaseOffset("rad");
     for (auto bit : x){
-        double angle = bit * baseAngle; 
+        double angle = bit * baseAngle + phaseOffsetInRadians; 
         double i = sin(angle);
         double r = cos(angle);
         comp bitModulated{r, i};
