@@ -35,6 +35,19 @@ void PlotHelper::scatterComplexData(const std::vector<comp> &x, bool coordinateS
         double iMin = *std::min_element(i.begin(), i.end());
         iMin *= coefficient;
 
+
+        if (rMin < iMin){
+            iMin = rMin;
+        }else{
+            rMin = iMin;
+        }
+
+        if(rMax > iMax){
+            iMax = rMax;
+        }else{
+            rMax = iMax;
+        }
+
         std::vector<double> xAxisX{rMin, rMax};
         std::vector<double> xAxisY{0, 0};
 

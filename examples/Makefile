@@ -10,9 +10,12 @@ PYTHON_DIR = /usr/include/python3.10
 # python
 PYTHON = -lpython3.10
 
+# build directory
+BUILD_DIR = build
+
 ################
 matplotlibTest: matplotlibTest.cpp
-	$(CC) -std=$(CPP_VERSION) -w -o build/matplotlibTest matplotlibTest.cpp -I $(PYTHON_DIR) $(PYTHON)
+	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/matplotlibTest matplotlibTest.cpp -I $(PYTHON_DIR) $(PYTHON)
 
 PSKModulatorExample: PSKModulatorExample.cpp
-	$(CC) -std=$(CPP_VERSION) -w -o build/PSKModulatorExample PSKModulatorExample.cpp -I $(PYTHON_DIR) $(PYTHON)
+	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/PSKModulatorExample PSKModulatorExample.cpp -I $(PYTHON_DIR) $(PYTHON)
