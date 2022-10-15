@@ -17,5 +17,7 @@ SignaLib is c++ library for making signal simulations.
     
     ![alt text](https://github.com/marwyp/signaLib/blob/master/examples/img/AWGNChannelExample.jpg?raw=true)
 ### Compilation
-
+1. Download source code: *git clone git@github.com:marwyp/signaLib.git*
+2. TODO
 ### Specs
+1. TODO
