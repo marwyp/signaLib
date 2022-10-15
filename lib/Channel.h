@@ -1,6 +1,5 @@
 #include <complex>
 #include <vector>
-#include "signalExceptions.h"
 
 using comp = std::complex<double>;
 

@@ -1,5 +1,5 @@
-#include "Modulator.h"
 #include <cmath>
+#include "Modulator.h"
 
 namespace signaLib{
     class PSKModulator : public Modulator{

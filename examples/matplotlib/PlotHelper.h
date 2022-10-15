@@ -1,6 +1,7 @@
 #include <vector>
 #include <complex>
 #include <iostream>
+
 #include "matplotlibcpp.h"
 
 namespace plt = matplotlibcpp;

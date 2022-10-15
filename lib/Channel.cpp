@@ -1,4 +1,5 @@
 #include "Channel.h"
+#include "signalExceptions.h"
 
 // constructor
 signaLib::Channel::Channel(double phaseOffset){
@@ -21,7 +22,7 @@ std::vector<comp> signaLib::Channel::transfer(const std::vector<comp> &x){
 }
 
 // channel characteristics
-std::vector<comp> channelCharacteristics(const std::vector<comp> &x){
+std::vector<comp> signaLib::Channel::channelCharacteristics(const std::vector<comp> &x){
     std::vector<comp> result;
     return result;
 }

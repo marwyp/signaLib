@@ -1,5 +1,4 @@
 #include <iostream>
-#include "../lib/PSKModulator.h"
 #include "../lib/signaLib.h"
 #include "matplotlib/PlotHelper.h"
 

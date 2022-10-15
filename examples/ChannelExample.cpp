@@ -1,6 +1,4 @@
 #include "../lib/signaLib.h"
-#include "../lib/PSKModulator.h"
-#include "../lib/Channel.h"
 #include "matplotlib/matplotlibcpp.h"
 
 int main(){

@@ -1,4 +1,6 @@
 #include "Modulator.h"
+#include "signalExceptions.h"
+
 
 // constructor
 signaLib::Modulator::Modulator(int modulationOrder, double phaseOffset){
