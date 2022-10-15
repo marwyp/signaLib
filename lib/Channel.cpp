@@ -2,6 +2,9 @@
 #include "signalExceptions.h"
 #include <iostream>
 #include "signalFunctions.h"
+#include <complex>
+
+const comp j{0, 1};
 
 // constructor
 signaLib::Channel::Channel(double phaseOffset){
@@ -19,7 +22,7 @@ std::vector<comp> signaLib::Channel::transfer(const std::vector<comp> &x){
     double phaseOffsetInRadians = getPhaseOffset("rad");
     for (int i = 0; i < y.size(); i++){
         //std::cout << complexToString(y[i]) << std::endl;
-        y[i] *= exp(phaseOffsetInRadians);
+        y[i] *= exp(phaseOffsetInRadians * j);
         //std::cout << complexToString(y[i]) << std::endl << std::endl;
     }
     return y;

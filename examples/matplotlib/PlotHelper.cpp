@@ -1,8 +1,9 @@
 #include "PlotHelper.h"
 #include <algorithm>
 
-void PlotHelper::getCoordinateSystemInfo(const std::vector<comp> &x, std::vector<double> &xAxisX,  std::vector<double> &xAxisY, 
-std::vector<double> &yAxisX, std::vector<double> &yAxisY, double &rMin, double &rMax, double &iMin, double &iMax){
+PlotHelper::CoordinateSystemInfo PlotHelper::getCoordinateSystemInfo(const std::vector<comp> &x){
+    PlotHelper::CoordinateSystemInfo info;
+
     std::vector<double> r;
     std::vector<double> i;
 
@@ -13,14 +14,14 @@ std::vector<double> &yAxisX, std::vector<double> &yAxisY, double &rMin, double &
 
     double coefficient = 1.1;
 
-    rMax = *std::max_element(r.begin(), r.end());
+    double rMax = *std::max_element(r.begin(), r.end());
     rMax *= coefficient;
-    rMin = *std::min_element(r.begin(), r.end());
+    double rMin = *std::min_element(r.begin(), r.end());
     rMin *= coefficient;
 
-    iMax = *std::max_element(i.begin(), i.end());
+    double iMax = *std::max_element(i.begin(), i.end());
     iMax *= coefficient;
-    iMin = *std::min_element(i.begin(), i.end());
+    double iMin = *std::min_element(i.begin(), i.end());
     iMin *= coefficient;
 
 
@@ -36,9 +37,16 @@ std::vector<double> &yAxisX, std::vector<double> &yAxisY, double &rMin, double &
         rMax = iMax;
     }
 
-    xAxisX = {rMin, rMax};
-    xAxisY = {0, 0};
+    info.rMin = rMin;
+    info.rMax = rMax;
+    info.iMin = iMin;
+    info.iMax = iMax;
 
-    yAxisX = {0, 0};
-    yAxisY = {iMin, iMax};
+    info.xAxisX = {rMin, rMax};
+    info.xAxisY = {0, 0};
+
+    info.yAxisX = {0, 0};
+    info.yAxisY = {iMin, iMax};
+
+    return info;
 }

@@ -49,26 +49,17 @@ int main(int argc, char *argv[]){
         // plot
         std::vector<double> r = signaLib::real(y);
         std::vector<double> i = signaLib::imag(y);
-        double rMax;
-        double iMax;
-        double rMin;
-        double iMin;
 
-        std::vector<double> xAxisX;
-        std::vector<double> xAxisY;
-        std::vector<double> yAxisX;
-        std::vector<double> yAxisY;
-
-        PlotHelper::getCoordinateSystemInfo(y, xAxisX, xAxisY, yAxisX, yAxisY, rMin, rMax, iMin, iMax);
+        auto info = PlotHelper::getCoordinateSystemInfo(y);
 
         plt::figure();
         plt::scatter(r, i, 20);
 
         // coordinates
-        plt::plot(xAxisX, xAxisY, "k");
-        plt::plot(yAxisX, yAxisY, "k");
-        plt::xlim(rMin, rMax);
-        plt::ylim(iMin, iMax);
+        plt::plot(info.xAxisX, info.xAxisY, "k");
+        plt::plot(info.yAxisX, info.yAxisY, "k");
+        plt::xlim(info.rMin, info.rMax);
+        plt::ylim(info.iMin, info.iMax);
 
         plt::show();
     }else{
