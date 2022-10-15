@@ -1,1 +1,5 @@
-class UnknownUnitException : public std::exception{};
+#pragma once
+
+namespace signaLib{
+    class UnknownUnitException : public std::exception{};
+}

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../lib/PSKModulator.h"
-#include "../lib/signalFuncs.h"
+#include "../lib/signaLib.h"
 #include "matplotlib/PlotHelper.h"
 
 namespace plt = matplotlibcpp;
