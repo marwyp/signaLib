@@ -1,6 +1,7 @@
 #include "signalFunctions.h"
 #include <random>
 #include <string.h>
+#include <cmath>
 
 std::vector<int> signaLib::randomSignalGenerator(int maxNumber, int n){
     std::random_device rd;
@@ -40,4 +41,16 @@ std::vector<double> signaLib::imag(const std::vector<comp> &x){
     }
 
     return result;
+}
+
+// Signal To Noise Ratio
+double signaLib::SNR(const std::vector<comp> &signal, const std::vector<comp> &signalWithNoise){
+    double numerator = 0.0;
+    double denoimator = 0.0;
+    for (int i = 0; i < signal.size(); i++){
+        numerator += pow(abs(signal[i]), 2);
+        denoimator += pow(abs(signal[i] - signalWithNoise[i]), 2);
+    }
+
+    return 10 * log10(numerator / denoimator);
 }

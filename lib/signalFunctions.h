@@ -15,4 +15,7 @@ namespace signaLib{
 
     // get imag part from complex vector
     std::vector<double> imag(const std::vector<comp> &x);
+
+    // Signal To Noise Ratio
+    double SNR(const std::vector<comp> &signal, const std::vector<comp> &signalWithNoise);
 }

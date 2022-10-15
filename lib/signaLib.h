@@ -2,4 +2,5 @@
 #include "Modulator.h"
 #include "PSKModulator.h"
 #include "Channel.h"
+#include "AWGNChannel.h"
 #include "signalFunctions.h"

@@ -21,7 +21,7 @@ OTHER_FILES = matplotlib/PlotHelper.cpp
 
 # library files list
 LIB_FILE_LIST = $(LIB_DIR)/signalExceptions.h $(LIB_DIR)/Modulator.cpp $(LIB_DIR)/PSKModulator.cpp \
-$(LIB_DIR)/signalFunctions.cpp $(LIB_DIR)/Channel.cpp
+$(LIB_DIR)/signalFunctions.cpp $(LIB_DIR)/Channel.cpp $(LIB_DIR)/AWGNChannel.cpp
 
 
 ################
@@ -34,4 +34,8 @@ PSKModulatorExample: PSKModulatorExample.cpp
 
 ChannelExample: ChannelExample.cpp
 	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/ChannelExample ChannelExample.cpp $(LIB_FILE_LIST) \
+	$(OTHER_FILES) -I $(PYTHON_DIR) $(PYTHON)
+
+AWGNChannelExample: AWGNChannelExample.cpp
+	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/AWGNChannelExample AWGNChannelExample.cpp $(LIB_FILE_LIST) \
 	$(OTHER_FILES) -I $(PYTHON_DIR) $(PYTHON)
