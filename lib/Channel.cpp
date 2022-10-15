@@ -1,5 +1,7 @@
 #include "Channel.h"
 #include "signalExceptions.h"
+#include <iostream>
+#include "signalFunctions.h"
 
 // constructor
 signaLib::Channel::Channel(double phaseOffset){
@@ -16,15 +18,16 @@ std::vector<comp> signaLib::Channel::transfer(const std::vector<comp> &x){
     // phase shift
     double phaseOffsetInRadians = getPhaseOffset("rad");
     for (int i = 0; i < y.size(); i++){
+        //std::cout << complexToString(y[i]) << std::endl;
         y[i] *= exp(phaseOffsetInRadians);
+        //std::cout << complexToString(y[i]) << std::endl << std::endl;
     }
     return y;
 }
 
 // channel characteristics
 std::vector<comp> signaLib::Channel::channelCharacteristics(const std::vector<comp> &x){
-    std::vector<comp> result;
-    return result;
+    return x;
 }
 
 // phase offset getter, deg - for degrees, rad - for radians

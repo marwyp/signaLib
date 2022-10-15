@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../lib/signaLib.h"
 #include "matplotlib/PlotHelper.h"
+#include "matplotlib/matplotlibcpp.h"
 
 namespace plt = matplotlibcpp;
 
@@ -44,8 +45,31 @@ int main(int argc, char *argv[]){
             x.push_back(i);
         }
         std::vector<comp> y = modulator.modulate(x);
+
+        // plot
+        std::vector<double> r = signaLib::real(y);
+        std::vector<double> i = signaLib::imag(y);
+        double rMax;
+        double iMax;
+        double rMin;
+        double iMin;
+
+        std::vector<double> xAxisX;
+        std::vector<double> xAxisY;
+        std::vector<double> yAxisX;
+        std::vector<double> yAxisY;
+
+        PlotHelper::getCoordinateSystemInfo(y, xAxisX, xAxisY, yAxisX, yAxisY, rMin, rMax, iMin, iMax);
+
         plt::figure();
-        PlotHelper::scatterComplexData(y);
+        plt::scatter(r, i, 20);
+
+        // coordinates
+        plt::plot(xAxisX, xAxisY, "k");
+        plt::plot(yAxisX, yAxisY, "k");
+        plt::xlim(rMin, rMax);
+        plt::ylim(iMin, iMax);
+
         plt::show();
     }else{
         std::cout<< "PSK modulator example\n\n";
