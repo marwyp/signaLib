@@ -55,9 +55,13 @@ SignaLib is c++ library for making signal simulations.
    - *protected double SNR* - Signal to Noise ration for AWGN calculations
 1. functions
    - *vector<int> randomSignalGenerator(int maxNumber, int n)* - returns n samples of random signal between 0 and maxNumber
-   - *string complexToString(complex<double> number)* - complex numbers to string
    - *vector<double> real(const vector<complex<double>> &x)* - get real part from complex vector
    - *vector<double> imag(const vector<complex<double>> &x)* - get imag part from complex vector
    - *double SNR(const vector<complex<double>> &signal, const vector<complex<double>> &signalWithNoise)* - calculates Signal To Noise Ratio based on given reference signal and noised signal
+   - *struct ErrorInfo{int errorNumber, double errorRatio}* - error functions return structure
+   - *ErrorInfo SER(vector<int> referenceSignal, vector<int> signal)* - Symbol Error Rate
+   - *string toString(complex<double> number)* - complex numbers to string
+   - *string toString(const vector<int> &vec)* - vector<int> to string
+   - *string toString(const vector<complex<double>> &vec)* - vector<complex<double>> to string
 1. Exceptions
    - *UnknownUnitException* - thrown when wrong unit is given e.g. expected "deg" or "rad" and sth else is given
