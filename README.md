@@ -18,6 +18,13 @@ SignaLib is c++ library for making signal simulations.
     ![alt text](https://github.com/marwyp/signaLib/blob/master/examples/img/AWGNChannelExample.jpg?raw=true)
 ### Compilation
 1. Download source code: *git clone git@github.com:marwyp/signaLib.git*
-2. TODO
+2. If you want to you use matplotlib-cpp:
+   - install Python: *apt install python3 python3-dev*
+   - install matplotlib-cpp: *pip3 install matplotlib*
+   - change Python.h directory and Python version in Makefile: *locate 'Python.h'*
+   - for more information visit: [documentation](https://matplotlib-cpp.readthedocs.io/en/latest/), [github](https://github.com/lava/matplotlib-cpp)
+3. Use Makefile to compile the code:
+   - e.g. in examples directory: *make PSKModulatorExample*
+   - e.g. in examples directory: *make AWGNChannelExample*
 ### Specs
 1. TODO
