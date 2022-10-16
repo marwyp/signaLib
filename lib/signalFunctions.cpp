@@ -16,11 +16,6 @@ std::vector<int> signaLib::randomSignalGenerator(int maxNumber, int n){
     return randomSignal;
 }
 
-// complex numbers to string
-std::string signaLib::complexToString(std::complex<double> number){
-    return std::to_string(real(number)) + " + " + std::to_string(imag(number)) + " * j";
-}
-
 // get real part from complex vector
 std::vector<double> signaLib::real(const std::vector<comp> &x){
     std::vector<double> result;
@@ -68,4 +63,39 @@ signaLib::ErrorInfo signaLib::SER(std::vector<int> referenceSignal, std::vector<
     signaLib::ErrorInfo info{errors, 1.0 * errors / numberOfSamples};
 
     return info;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//                          to string functions                          //
+///////////////////////////////////////////////////////////////////////////
+
+// complex numbers to string
+std::string signaLib::toString(std::complex<double> number){
+    return std::to_string(real(number)) + " + " + std::to_string(imag(number)) + " * j";
+}
+
+// vector<int> to string
+std::string signaLib::toString(const std::vector<int> &vec){
+    std::string result = "[";
+
+    for (int i = 0; i < vec.size(); i++){
+        result = result + std::to_string(vec[i]) + ", ";
+    }
+
+    result[result.length() - 1] = ']';
+
+    return result;
+}
+
+// vector<comp> to string
+std::string signaLib::toString(const std::vector<comp> &vec){
+    std::string result = "[";
+
+    for (int i = 0; i < vec.size(); i++){
+        result = result + signaLib::toString(vec[i]) + ", ";
+    }
+
+    result[result.length() - 1] = ']';
+
+    return result;
 }

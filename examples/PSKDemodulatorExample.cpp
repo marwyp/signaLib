@@ -9,6 +9,8 @@ int main(int argc, char *argv[]){
     double channelPhaseOffset = 0;    // channel phase offset in degrees
     double SNR = 15;
 
+    bool printSignals = false;
+
     // cmd handling
     std::vector<std::string> args(argv, argv + argc);
     bool valid = true;
@@ -54,6 +56,8 @@ int main(int argc, char *argv[]){
             }else{
                 valid = false;
             }
+        }else if (args[i] == "-p"){
+            printSignals = true;
         }
     }
 
@@ -79,20 +83,13 @@ int main(int argc, char *argv[]){
         // results
         signaLib::ErrorInfo SER = signaLib::SER(x, xDemodulated);
 
-        std::string xString = "[";
-        std::string xDemodString = "[";
-
-        for (int i = 0; i < x.size(); i++){
-            xString = xString + std::to_string(x[i]) + ", ";
-            xDemodString = xDemodString + std::to_string(xDemodulated[i]) + ", ";
+        std::cout << "Symbol Error Rate   = " << SER.errorRatio << std::endl;
+        std::cout << "Symbol Error Number = " << SER.errorNumber << std::endl;
+        if (printSignals){
+            std::cout << "signal generated   = " << signaLib::toString(x) << std::endl;
+            std::cout << "signal demodulated = " << signaLib::toString(xDemodulated) << std::endl;
         }
-
-        xString += "]";
-        xDemodString += "]";
-
-        std::cout << "SER = " << SER.errorRatio << std::endl;
-        std::cout << "x      = " << xString << std::endl;
-        std::cout << "xDemod = " << xDemodString << std::endl;
+        
 
     }else{
         std::cout<< "Channel example\n\n";
@@ -100,6 +97,7 @@ int main(int argc, char *argv[]){
         std::cout<< "-o <channel phase offset>\t\tchannel phase offset in degrees, default is 0" << std::endl;
         std::cout<< "-n <number of samples>\t\tnumber of sameples, default is 100" << std::endl;
         std::cout<< "-s <SNR>\t\tSNR value, default is 15" << std::endl;
+        std::cout<< "-p \t\tprint generated and demodulated signal" << std::endl;
     }
 
     return 0;

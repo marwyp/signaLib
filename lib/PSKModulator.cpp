@@ -32,7 +32,6 @@ int signaLib::PSKModulator::demodulateOneSample(const comp &sample){
     if (angle < 0){
         angle += 2 * signaLib::PI;
     }
-    std::cout << angle << std::endl;
     int demodulatedSample = static_cast<int>(round((angle * modulationOrder) / (2 * signaLib::PI))) % modulationOrder;
     return demodulatedSample;
 }

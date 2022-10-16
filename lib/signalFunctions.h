@@ -13,9 +13,6 @@ namespace signaLib{
     // returns n samples of random signal between 0 and maxNumber
     std::vector<int> randomSignalGenerator(int maxNumber, int n);
 
-    // complex numbers to string
-    std::string complexToString(std::complex<double> number);
-
     // get real part from complex vector
     std::vector<double> real(const std::vector<comp> &x);
 
@@ -27,4 +24,17 @@ namespace signaLib{
 
     // Symbol Error Rate
     ErrorInfo SER(std::vector<int> referenceSignal, std::vector<int> signal);
+
+    ///////////////////////////////////////////////////////////////////////////
+    //                          to string functions                          //
+    ///////////////////////////////////////////////////////////////////////////
+
+    // complex numbers to string
+    std::string toString(std::complex<double> number);
+
+    // vector<int> to string
+    std::string toString(const std::vector<int> &vec);
+
+    // vector<comp> to string
+    std::string toString(const std::vector<comp> &vec);
 }
