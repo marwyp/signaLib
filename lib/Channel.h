@@ -1,8 +1,7 @@
 #pragma once
 #include <complex>
 #include <vector>
-
-using comp = std::complex<double>;
+#include "signalConstsAndDirectives.h"
 
 namespace signaLib{
     class Channel{

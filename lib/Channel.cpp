@@ -4,8 +4,6 @@
 #include "signalFunctions.h"
 #include <complex>
 
-const comp j{0, 1};
-
 // constructor
 signaLib::Channel::Channel(double phaseOffset){
     this->phaseOffset = phaseOffset;
@@ -22,7 +20,7 @@ std::vector<comp> signaLib::Channel::transfer(const std::vector<comp> &x){
     double phaseOffsetInRadians = getPhaseOffset("rad");
     for (int i = 0; i < y.size(); i++){
         //std::cout << complexToString(y[i]) << std::endl;
-        y[i] *= exp(phaseOffsetInRadians * j);
+        y[i] *= exp(phaseOffsetInRadians * signaLib::IMAG_J);
         //std::cout << complexToString(y[i]) << std::endl << std::endl;
     }
     return y;
@@ -38,7 +36,7 @@ double signaLib::Channel::getPhaseOffset(std::string unit){
     if (unit == "deg"){
         return this->phaseOffset;
     }else if (unit == "rad"){
-        return this->phaseOffset * (M_PI / 180);
+        return this->phaseOffset * (signaLib::PI / 180);
     }else{
         throw signaLib::UnknownUnitException();
     }

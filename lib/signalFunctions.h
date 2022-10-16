@@ -1,9 +1,15 @@
 #include <vector>
 #include <complex>
-
-using comp = std::complex<double>;
+#include "signalConstsAndDirectives.h"
 
 namespace signaLib{
+    // error struct
+    struct ErrorInfo
+    {
+        int errorNumber;
+        double errorRatio;
+    };
+    
     // returns n samples of random signal between 0 and maxNumber
     std::vector<int> randomSignalGenerator(int maxNumber, int n);
 
@@ -18,4 +24,7 @@ namespace signaLib{
 
     // Signal To Noise Ratio
     double SNR(const std::vector<comp> &signal, const std::vector<comp> &signalWithNoise);
+
+    // Symbol Error Rate
+    ErrorInfo SER(std::vector<int> referenceSignal, std::vector<int> signal);
 }

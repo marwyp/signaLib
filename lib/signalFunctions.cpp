@@ -54,3 +54,18 @@ double signaLib::SNR(const std::vector<comp> &signal, const std::vector<comp> &s
 
     return 10 * log10(numerator / denoimator);
 }
+
+signaLib::ErrorInfo signaLib::SER(std::vector<int> referenceSignal, std::vector<int> signal){
+    int numberOfSamples = referenceSignal.size();
+    int errors = 0;
+
+    for (int i = 0; i < numberOfSamples; i++){
+        if (referenceSignal[i] != signal[i]){
+            errors++;
+        }
+    }
+
+    signaLib::ErrorInfo info{errors, 1.0 * errors / numberOfSamples};
+
+    return info;
+}

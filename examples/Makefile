@@ -28,8 +28,7 @@ $(LIB_DIR)/signalFunctions.cpp $(LIB_DIR)/Channel.cpp $(LIB_DIR)/AWGNChannel.cpp
 
 
 ################
-matplotlibTest: matplotlibTest.cpp
-	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/matplotlibTest matplotlibTest.cpp -I $(PYTHON_DIR) $(PYTHON)
+ALL: PSKModulatorExample ChannelExample AWGNChannelExample PSKDemodulatorExample
 
 PSKModulatorExample: PSKModulatorExample.cpp
 	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/PSKModulatorExample PSKModulatorExample.cpp $(LIB_FILE_LIST) \
@@ -42,3 +41,9 @@ ChannelExample: ChannelExample.cpp
 AWGNChannelExample: AWGNChannelExample.cpp
 	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/AWGNChannelExample AWGNChannelExample.cpp $(LIB_FILE_LIST) \
 	$(OTHER_FILES) -I $(PYTHON_DIR) $(PYTHON)
+
+PSKDemodulatorExample:PSKDemodulatorExample.cpp
+	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/PSKDemodulatorExample PSKDemodulatorExample.cpp $(LIB_FILE_LIST)
+
+matplotlibTest: matplotlibTest.cpp
+	$(CC) -std=$(CPP_VERSION) -w -o $(BUILD_DIR)/matplotlibTest matplotlibTest.cpp -I $(PYTHON_DIR) $(PYTHON)

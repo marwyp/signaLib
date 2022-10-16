@@ -1,3 +1,4 @@
+#include "signalConstsAndDirectives.h"
 #include "signalExceptions.h"
 #include "Modulator.h"
 #include "PSKModulator.h"
