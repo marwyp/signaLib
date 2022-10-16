@@ -43,3 +43,11 @@ SignaLib is c++ library for making signal simulations.
 4. class AWGNChannel(double SNR, double phaseOffset = 0.0) - AWGN channel class
    - *protected vector<complex<double>> channelCharacteristics(const vector<complex<double>> &x)* -  - channel characteristics, function is called by transfer function, adds Additive white Gaussian noise to signal x using given SNR
    - *protected double SNR* - Signal to Noise ration for AWGN calculations
+5. functions
+   - *vector<int> randomSignalGenerator(int maxNumber, int n)* - returns n samples of random signal between 0 and maxNumber
+   - *string complexToString(complex<double> number)* - complex numbers to string
+   - *vector<double> real(const vector<complex<double>> &x)* - get real part from complex vector
+   - *vector<double> imag(const vector<complex<double>> &x)* - get imag part from complex vector
+   - *double SNR(const vector<complex<double>> &signal, const vector<complex<double>> &signalWithNoise)* - calculates Signal To Noise Ratio based on given reference signal and noised signal
+6. Exceptions
+   - *UnknownUnitException* - thrown when wrong unit is given e.g. expected "deg" or "rad" and sth else is given
