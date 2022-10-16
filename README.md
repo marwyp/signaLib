@@ -27,11 +27,19 @@ SignaLib is c++ library for making signal simulations.
    - e.g. in examples directory: *make PSKModulatorExample*
    - e.g. in examples directory: *make AWGNChannelExample*
 ### Specification
-1. abstract class Modulator(int modulationOrder = 0, double phaseOffset = 0.0)
+1. abstract class Modulator(int modulationOrder = 0, double phaseOffset = 0.0) - base class for different modulators
    - *public virtual vector<complex<double>> modulate(const vector<int> &x) = 0* - modulates given signal x
    - *public int getModulationOrder()* - modulation order getter
    - *public double getPhaseOffset(string unit = "deg")* - phase offset getter, deg - for degrees, rad - for radians
    - *protected int modulationOrder* - modulation order
-   - *double phaseOffset* - phase offset in degrees
-2. class PSKModulator(int modulationOrder = 0, double phaseOffset = 0.0) : public Modulator
-   - vector<comp> modulate(const std::vector<int> &x);
+   - *protected double phaseOffset* - phase offset in degrees
+2. class PSKModulator(int modulationOrder = 0, double phaseOffset = 0.0) : public Modulator - PSK modulator class
+   - *public vector<complex<double>> modulate(const vector<int> &x)* - modulates given signal x using PSK modulation, x must be vector of ints between 0 and modulationOrder
+3. class Channel(double phaseOffset = 0.0) - base class for different channels
+   - *public vector<complex<double>> transfer(const vector<complex<double>> &x)* - transfer data through channel
+   - *public double getPhaseOffset(string unit)* - channel phase offset getter, deg - for degrees, rad - for radians
+   - *protected virtual vector<complex<double>> channelCharacteristics(const vector<complex<double>> &x)* - channel characteristics, function is called by transfer function, for base channel class this function does not change the signal
+   - *protected double phaseOffset* - phase offset in degrees
+4. class AWGNChannel(double SNR, double phaseOffset = 0.0) - AWGN channel class
+   - *protected vector<complex<double>> channelCharacteristics(const vector<complex<double>> &x)* -  - channel characteristics, function is called by transfer function, adds Additive white Gaussian noise to signal x using given SNR
+   - *protected double SNR* - Signal to Noise ration for AWGN calculations
