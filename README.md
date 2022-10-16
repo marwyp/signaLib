@@ -33,21 +33,21 @@ SignaLib is c++ library for making signal simulations.
    - *public double getPhaseOffset(string unit = "deg")* - phase offset getter, deg - for degrees, rad - for radians
    - *protected int modulationOrder* - modulation order
    - *protected double phaseOffset* - phase offset in degrees
-2. class PSKModulator(int modulationOrder = 0, double phaseOffset = 0.0) : public Modulator - PSK modulator class
+1. class PSKModulator(int modulationOrder = 0, double phaseOffset = 0.0) : public Modulator - PSK modulator class
    - *public vector<complex<double>> modulate(const vector<int> &x)* - modulates given signal x using PSK modulation, x must be vector of ints between 0 and modulationOrder
-3. class Channel(double phaseOffset = 0.0) - base class for different channels
+1. class Channel(double phaseOffset = 0.0) - base class for different channels
    - *public vector<complex<double>> transfer(const vector<complex<double>> &x)* - transfer data through channel
    - *public double getPhaseOffset(string unit)* - channel phase offset getter, deg - for degrees, rad - for radians
    - *protected virtual vector<complex<double>> channelCharacteristics(const vector<complex<double>> &x)* - channel characteristics, function is called by transfer function, for base channel class this function does not change the signal
    - *protected double phaseOffset* - phase offset in degrees
-4. class AWGNChannel(double SNR, double phaseOffset = 0.0) - AWGN channel class
+1. class AWGNChannel(double SNR, double phaseOffset = 0.0) - AWGN channel class
    - *protected vector<complex<double>> channelCharacteristics(const vector<complex<double>> &x)* -  - channel characteristics, function is called by transfer function, adds Additive white Gaussian noise to signal x using given SNR
    - *protected double SNR* - Signal to Noise ration for AWGN calculations
-5. functions
+1. functions
    - *vector<int> randomSignalGenerator(int maxNumber, int n)* - returns n samples of random signal between 0 and maxNumber
    - *string complexToString(complex<double> number)* - complex numbers to string
    - *vector<double> real(const vector<complex<double>> &x)* - get real part from complex vector
    - *vector<double> imag(const vector<complex<double>> &x)* - get imag part from complex vector
    - *double SNR(const vector<complex<double>> &signal, const vector<complex<double>> &signalWithNoise)* - calculates Signal To Noise Ratio based on given reference signal and noised signal
-6. Exceptions
+1. Exceptions
    - *UnknownUnitException* - thrown when wrong unit is given e.g. expected "deg" or "rad" and sth else is given
