@@ -26,5 +26,12 @@ SignaLib is c++ library for making signal simulations.
 3. Use Makefile to compile the code:
    - e.g. in examples directory: *make PSKModulatorExample*
    - e.g. in examples directory: *make AWGNChannelExample*
-### Specs
-1. TODO
+### Specification
+1. abstract class Modulator(int modulationOrder = 0, double phaseOffset = 0.0)
+   - *public virtual vector<complex<double>> modulate(const vector<int> &x) = 0* - modulates given signal x
+   - *public int getModulationOrder()* - modulation order getter
+   - *public double getPhaseOffset(string unit = "deg")* - phase offset getter, deg - for degrees, rad - for radians
+   - *protected int modulationOrder* - modulation order
+   - *double phaseOffset* - phase offset in degrees
+2. class PSKModulator(int modulationOrder = 0, double phaseOffset = 0.0) : public Modulator
+   - vector<comp> modulate(const std::vector<int> &x);
