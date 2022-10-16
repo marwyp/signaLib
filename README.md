@@ -69,7 +69,7 @@ SignaLib is c++ library for making signal simulations.
 1. Exceptions
    - *UnknownUnitException* - thrown when wrong unit is given e.g. expected "deg" or "rad" and sth else is given
 1. Consts and directives
-   - *using comp = complex<double>* - complex type for complex data
+   - *using comp = complex<double<nothing>>* - complex type for complex data
    - *const double PI* - PI constant, 3.1415...
    - *const complex<double> IMAG_J* - complex number i (j)
    - *const complex<double> IMAG_MINUS_J* - complex number -i (-j)
