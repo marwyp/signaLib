@@ -7,8 +7,11 @@ CPP_VERSION = c++11
 # python directory
 PYTHON_DIR = /usr/include/python3.10
 
+# python version
+PYTHON_VERSION = 3.10
+
 # python
-PYTHON = -lpython3.10
+PYTHON = -lpython$(PYTHON_VERSION)
 
 # build directory
 BUILD_DIR = build
