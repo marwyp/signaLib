@@ -3,7 +3,7 @@
 #include "signalConstsAndDirectives.h"
 
 namespace signaLib{
-    // error struct
+    // error functions return structure
     struct ErrorInfo
     {
         int errorNumber;
