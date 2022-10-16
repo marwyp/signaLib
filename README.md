@@ -1,5 +1,5 @@
 # signaLib
-SignaLib is c++ library for making signal simulations.
+SignaLib is c++ library for making signal simulations containing: modulators, channels and functions for error measurement.
 
 ### Examples
 1. PSKModulatorExample -m *modulation-order* -o *phase-offset*
